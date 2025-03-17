@@ -1,0 +1,43 @@
+{
+    // model
+    "model": "APBSNModel",
+    "pd_a": 5,
+    "pd_b": 2,
+    "R3": true,
+    "R3_T": 8,
+    "R3_p": 0.16,
+    // net
+    "networks": [{
+        "name": "bsn",
+        "type": "TBSN",
+        "args": {
+            "in_ch": 3,
+            "out_ch": 3
+        }
+        , "path": "/home/restoration/TBSN-main/pretrained_models/model_sidd.pth"
+//experiments/0317-151153_APBSNModel_TBSN/log/bsn_iter_00000350.pth"
+//experiments/experiments/0314-165501_APBSNModel_TBSN/log/bsn_iter_00001400.pth"
+//pretrained_models/model_sidd.pth" // comment this line for train
+    }],
+    // datasets
+    "train_dataset": {
+        "type": "SIDDMediumTrainDataset",
+        "args": {
+            "pin_memory": true,
+            "patch_size": 640
+        },
+        "batch_size": 4 // used for base train
+    },
+    "validation_datasets": [{
+        "type": "SIDDValidationDataset",
+        "args": {}
+    }],
+    // training parameters
+    "lr": 3e-4,
+    "print_every": 50,
+    "save_every": 50,
+    "validate_every": 1,
+    "num_iters": 2000,
+    "log_dir": "log",
+    "log_file": "log/log.out"
+}

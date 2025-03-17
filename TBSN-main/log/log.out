@@ -1,0 +1,30 @@
+    model: APBSNModel
+    pd_a: 5
+    pd_b: 2
+    R3: True
+    R3_T: 8
+    R3_p: 0.16
+    networks: 
+        name: bsn
+        type: TBSN
+        args: 
+            in_ch: 3
+            out_ch: 3
+        path: /home/restoration/TBSN-main/pretrained_models/model_sidd.pth
+    train_dataset: 
+        type: SIDDMediumTrainDataset
+        args: 
+            pin_memory: True
+            patch_size: 640
+        batch_size: 4
+    validation_datasets: 
+        type: SIDDValidationDataset
+        args: 
+    lr: 0.0003
+    print_every: 50
+    save_every: 50
+    validate_every: 1
+    num_iters: 2000
+    log_dir: log
+    log_file: log/log.out
+2025-03-17, 20:53:06  iter: 1, 
